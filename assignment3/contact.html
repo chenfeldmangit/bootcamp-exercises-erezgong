@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Erez Bizo</title>
+    <meta name="description" content="Guitar hero">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/profile.jpg">
+</head>
+<body>
+    <div id="menu">
+    <h1>Erez Bizo</h1>
+        <a href="profile.html">profile</a>
+        <a href="contact.html">contact</a>
+        <a href="recommendations.html">recommendations</a>
+    </div>
+
+    <br><br>
+
+    <h2>Contact Us</h2>
+    <form action="contact.html" method="get">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" required><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" required><br>
+        <label for="gender">Gender:</label><br>
+        <select id="gender" name="gender" required>
+            <option value="male">male</option>
+            <option value="female">female</option>
+            <option value="n/a">n/a</option>
+        </select><br>
+        <label for="body">Body:</label><Br>
+        <textarea type="text" id="body" name="body" rows="5" cols="50" required>Enter here...</textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
