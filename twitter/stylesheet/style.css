@@ -1,38 +1,116 @@
 body {
     font-family: Calibri;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
 }
 
-.side-menu-logo {
-    width: 50px;
-    height: 50px;
+.left-menu .list {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
-.side-menu-button {
-    width: 160px;
+.left-menu .logo {
+    width: 5em;
+    height: 5em;
+}
+
+.left-menu .item {
     display: inline-flex;
     align-items: center;
     border: 0;
-    border-radius: 120px;
-    background-color: transparent;
 }
 
-.side-menu-button:hover {
+.left-menu .item:hover {
     border: 10px;
     background-color: #beeaff;
 }
 
-.side-menu-icon {
-    width: 40px;
-    height: 40px;
-    float: left;
+.left-menu .icon {
+    width: 3em;
+    height: 3em;
     border-radius: 50%
 }
 
-.side-menu-caption {
+.left-menu .caption {
      float: right;
      font-size: 14px;
      font-weight: bold;
      vertical-align: middle;
      padding-left: 15px;
  }
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.main .title {
+    font-weight: bold;
+}
+
+.main .status {
+    display: flex;
+    vertical-align: middle;
+}
+
+.main .profile {
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    margin-right: 2em;
+}
+
+.main .status-container {
+    margin-bottom: 4em;
+}
+
+.main .status-container .status textarea {
+    font-family: inherit;
+}
+
+.main .status-container .interaction {
+    display: flex;
+    margin-top: 1em;
+}
+
+.main .interaction .icon {
+    width: 2em;
+    height: 2em;
+    margin-right: 1em;
+}
+
+.main .interaction .tweet-button {
+    margin-left: 11em;
+    font-family: inherit;
+}
+
+.main .feed {
+    display: flex;
+    flex-direction: column;
+}
+
+.main .feed .tweet {
+    display: flex;
+    border: 1px solid;
+    padding: 2em;
+}
+
+.right-menu {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+}
+
+.right-menu .trends {
+    display: flex;
+    flex-direction: column;
+}
+
+.right-menu .trends .trend {
+    font-weight: bold;
+}
+
 
