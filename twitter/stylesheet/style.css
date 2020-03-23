@@ -2,13 +2,16 @@ body {
     font-family: Calibri;
     font-size: 15px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.left-menu {
+    width: 5em;
 }
 
 .left-menu .list {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
 }
 
 .left-menu .logo {
@@ -17,20 +20,22 @@ body {
 }
 
 .left-menu .item {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     border: 0;
+    width: 11em;
 }
 
 .left-menu .item:hover {
-    border: 10px;
+    border-radius: 1em;
     background-color: #beeaff;
 }
 
 .left-menu .icon {
     width: 3em;
     height: 3em;
-    border-radius: 50%
+    border-radius: 50%;
+    margin-left: 1em;
 }
 
 .left-menu .caption {
@@ -38,13 +43,13 @@ body {
      font-size: 14px;
      font-weight: bold;
      vertical-align: middle;
-     padding-left: 15px;
+     padding-left: 1em;
  }
 
 .main {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    width: 50em;
 }
 
 .main .title {
@@ -101,7 +106,7 @@ body {
 .right-menu {
     display: flex;
     flex-direction: column;
-    flex-grow: 2;
+    width: 12em;
 }
 
 .right-menu .trends {
