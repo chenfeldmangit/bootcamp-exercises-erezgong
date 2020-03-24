@@ -1,4 +1,4 @@
-window.onload = function () {
+window.onload = () => {
     let profile = document.getElementById("left-menu-profile");
     profile.addEventListener("click", showProfile);
 
@@ -6,7 +6,7 @@ window.onload = function () {
     home.addEventListener("click", showHome);
 };
 
-const showProfile = function showProfile() {
+const showProfile = () => {
     let home = document.getElementById("home");
     let profile = document.getElementById("profile");
     home.style.display = "none";
@@ -16,7 +16,7 @@ const showProfile = function showProfile() {
     loadTweets();
 };
 
-const showHome = function showHome() {
+const showHome = ()  => {
     let home = document.getElementById("home");
     let profile = document.getElementById("profile");
     home.style.display = "flex";
@@ -25,7 +25,7 @@ const showHome = function showHome() {
     cleanTweets()
 };
 
-const loadUserData = function() {
+const loadUserData = () => {
     let coverImage = document.querySelector("#profile .info .info-top .cover");
     coverImage.setAttribute("src", userData.cover);
 
@@ -48,7 +48,7 @@ const loadUserData = function() {
     followers.innerHTML = userData.followers;
 };
 
-const loadTweets = function() {
+const loadTweets = () => {
     let feed = document.querySelector("#profile .feed");
     let tweetTemplate = document.querySelector("#profile .feed .tweet-template");
 
@@ -69,7 +69,7 @@ const loadTweets = function() {
     );
 };
 
-const cleanTweets = function() {
+const cleanTweets = () => {
     let feed = document.querySelector("#profile .feed");
     let tweets = Array.from(feed.getElementsByClassName("tweet"));
     console.log(tweets);
