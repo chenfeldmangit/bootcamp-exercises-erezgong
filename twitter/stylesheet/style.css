@@ -9,73 +9,74 @@ body {
     font-size: 5px;
   }
 }
-body .left-menu {
+body #left-menu {
   width: 10%;
 }
-body .left-menu .list {
+body #left-menu .list {
   display: flex;
   flex-direction: column;
 }
-body .left-menu .logo {
+body #left-menu .logo {
   width: 5em;
   height: 5em;
 }
-body .left-menu .item {
+body #left-menu .item {
   display: flex;
   align-items: center;
   border: 0;
   width: 11em;
+  margin-bottom: 1em;
 }
-body .left-menu .item:hover {
+body #left-menu .item:hover {
   border-radius: 1em;
   background-color: #beeaff;
 }
-body .left-menu .item .icon {
+body #left-menu .item .icon {
   width: 3em;
   height: 3em;
   border-radius: 50%;
   margin-left: 1em;
 }
-body .left-menu .item .caption {
+body #left-menu .item .caption {
   float: right;
   font-weight: bold;
   vertical-align: middle;
   padding-left: 1em;
 }
-body .main {
+body #home {
   display: flex;
   flex-direction: column;
   width: 50%;
 }
-body .main .title {
+body #home .title {
   font-weight: bold;
 }
-body .main .profile {
+body #home .profile {
   width: 4em;
   height: 4em;
   border-radius: 60%;
   margin-right: 2em;
 }
-body .main .status-container {
+body #home .status-container {
   margin-bottom: 4em;
 }
-body .main .status-container .status {
+body #home .status-container .status {
   display: flex;
   vertical-align: middle;
 }
-body .main .status-container .status textarea {
+body #home .status-container .status textarea {
   font-family: inherit;
 }
-body .main .status-container .interaction {
+body #home .status-container .interaction {
   display: flex;
   margin-top: 1em;
 }
-body .main .status-container .interaction .icon {
+body #home .status-container .interaction .icon {
   width: 2em;
   height: 2em;
   margin-right: 1em;
 }
-body .main .status-container .interaction .tweet-button {
+body #home .status-container .interaction .tweet-button {
   margin-left: 9em;
   border-radius: 1em;
   background-color: dodgerblue;
@@ -83,30 +84,57 @@ body .main .status-container .interaction .tweet-button {
   height: 2em;
   text-align: center;
 }
-body .main .status-container .interaction .tweet-button .caption {
+body #home .status-container .interaction .tweet-button .caption {
   font-family: inherit;
   color: white;
   vertical-align: middle;
 }
-body .main .feed {
+body #home .feed-container {
   display: flex;
   flex-direction: column;
 }
-body .main .feed .tweet {
+body #home .feed-container .tweet {
   display: flex;
   border: 1px solid;
   padding: 2em;
 }
-body .right-menu {
+body #profile {
+  display: none;
+  flex-direction: column;
+  width: 50%;
+}
+body #profile .title {
+  font-weight: bold;
+}
+body #profile .info-profile .profile {
+  width: 4em;
+  height: 4em;
+  border-radius: 60%;
+  margin-right: 2em;
+}
+body #profile .info .info-bottom .bio .joined .calendar {
+  width: 1em;
+  height: 1em;
+}
+body #profile .feed {
+  display: flex;
+  flex-direction: column;
+}
+body #profile .feed .tweet {
+  display: flex;
+  border: 1px solid;
+  padding: 2em;
+}
+body #right-menu {
   display: flex;
   flex-direction: column;
   width: 20%;
 }
-body .right-menu .trends {
+body #right-menu .trends {
   display: flex;
   flex-direction: column;
 }
-body .right-menu .trends .trend {
+body #right-menu .trends .trend {
   font-weight: bold;
 }
 

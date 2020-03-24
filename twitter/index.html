@@ -7,47 +7,48 @@
     <meta name="description" content="Twitter">
     <link rel="shortcut icon" type="image/x-icon" href="assets/twitter.ico">
     <link rel="stylesheet" href="stylesheet/style.css">
+    <script src="js/main.js"></script>
 </head>
 <body>
-    <div class="left-menu">
+    <div id="left-menu">
         <img class="logo" src="assets/logo.svg" alt="twitter-logo">
         <div class="list">
-            <div class="item">
-                <img class="icon" src="assets/side-menu/home-icon.svg" alt="Home">
+            <div class="item" id="left-menu-home">
+                <img class="icon" src="assets/home/side-menu/home-icon.svg" alt="Home">
                 <span class="caption">Home</span>
             </div>
             <div class="item">
-                <img class="icon" src="assets/side-menu/explore-icon.svg" alt="Explore">
+                <img class="icon" src="assets/home/side-menu/explore-icon.svg" alt="Explore">
                 <span class="caption">Explore</span>
             </div>
             <div class="item">
-                <img class="icon" src="assets/side-menu/notifications-icon.svg" alt="Notifications">
+                <img class="icon" src="assets/home/side-menu/notifications-icon.svg" alt="Notifications">
                 <span class="caption">Notifications</span>
             </div>
             <div class="item">
-                <img class="icon" src="assets/side-menu/messages-icon.svg" alt="Messages">
+                <img class="icon" src="assets/home/side-menu/messages-icon.svg" alt="Messages">
                 <span class="caption">Messages</span>
             </div>
             <div class="item">
-                <img class="icon" src="assets/side-menu/bookmarks-icon.svg" alt="Bookmarks">
+                <img class="icon" src="assets/home/side-menu/bookmarks-icon.svg" alt="Bookmarks">
                 <span class="caption">Bookmarks</span>
             </div>
             <div class="item">
-                <img class="icon" src="assets/side-menu/lists-icon.svg" alt="Lists">
+                <img class="icon" src="assets/home/side-menu/lists-icon.svg" alt="Lists">
                 <span class="caption">Lists</span>
             </div>
-            <div class="item">
+            <div class="item" id="left-menu-profile">
                 <img class="icon" src="assets/profile.jpg" alt="Profile">
                 <span class="caption">Profile</span>
             </div>
             <div class="item">
-                <img class="icon" src="assets/side-menu/more-icon.svg" alt="More">
+                <img class="icon" src="assets/home/side-menu/more-icon.svg" alt="More">
                 <span class="caption">More</span>
             </div>
         </div>
     </div>
 
-    <div class="main">
+    <div id="home">
         <h2 class="title">Home</h2>
         <div class="status-container">
             <div class="status">
@@ -56,23 +57,23 @@
             </div>
             <div class="interaction">
                 <div class="icon-wrapper">
-                    <img class="icon" src="assets/interactions/picture.svg">
+                    <img class="icon" src="assets/home/interactions/picture.svg">
                 </div>
                 <div class="icon-wrapper">
-                    <img class="icon" src="assets/interactions/gif.svg">
+                    <img class="icon" src="assets/home/interactions/gif.svg">
                 </div>
                 <div class="icon-wrapper">
-                    <img class="icon" src="assets/interactions/poll.svg">
+                    <img class="icon" src="assets/home/interactions/poll.svg">
                 </div>
                 <div class="icon-wrapper">
-                    <img class="icon" src="assets/interactions/emoji.svg">
+                    <img class="icon" src="assets/home/interactions/emoji.svg">
                 </div>
                 <div class="tweet-button">
                     <span class="caption">Tweet</span>
                 </div>
             </div>
         </div>
-        <div class="feed">
+        <div class="feed-container">
             <div class="tweet">
                 <img class="profile" src="assets/profile.jpg">
                 <div class="body">
@@ -104,7 +105,68 @@
         </div>
     </div>
 
-    <div class="right-menu">
+    <div id="profile">
+        <h2 class="title">Profile</h2>
+        <div class="info">
+            <div class="info-top">
+                <img class="cover" src="">
+            </div>
+            <div class="info-profile">
+                <img class="profile" src="">
+            </div>
+            <div class="info-bottom">
+                <div class="edit-profile">
+                    <span class="caption">Edit Profile</span>
+                </div>
+                <div class="bio">
+                    <span class="name"></span>
+                    <span class="tag"></span>
+                    <div class="joined">
+                        <img class="calendar" src="assets/profile/calendar.svg">
+                        <span class="joined-start">Joined </span>
+                        <span class="joined-date"></span>
+                    </div>
+                    <div class="follow">
+                        <div class="unit" id="following">
+                            <span class="count"></span>
+                            <span class="caption">Following</span>
+                        </div>
+                        <div class="unit" id="followers">
+                            <span class="count"></span>
+                            <span class="caption">Followers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tabs">
+            <div class="tab">
+                <span>Tweets</span>
+            </div>
+            <div class="tab">
+                <span>Tweets & replies</span>
+            </div>
+            <div class="tab">
+                <span>Media</span>
+            </div>
+            <div class="tab">
+                <span>Likes</span>
+            </div>
+        </div>
+        <div class="feed">
+            <template class="tweet-template">
+                <div class="tweet">
+                    <img class="profile" src="assets/profile.jpg">
+                    <div class="body">
+                        <h3 class="author">Erez Bizo</h3>
+                        <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+
+    <div id="right-menu">
         <div class="trends">
             <h3>Trends for you</h3>
             <div class="trend">knesset</div>

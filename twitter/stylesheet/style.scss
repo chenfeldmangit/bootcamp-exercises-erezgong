@@ -10,7 +10,7 @@ body {
         font-size: 5px;
     }
 
-    .left-menu {
+    #left-menu {
         width: 10%;
 
         .list {
@@ -28,6 +28,7 @@ body {
             align-items: center;
             border: 0;
             width: 11em;
+            margin-bottom: 1em;
 
             &:hover {
                 border-radius: 1em;
@@ -50,7 +51,7 @@ body {
         }
     }
 
-    .main {
+    #home {
         display: flex;
         flex-direction: column;
         width: 50%;
@@ -105,6 +106,49 @@ body {
             }
         }
 
+        .feed-container {
+            display: flex;
+            flex-direction: column;
+
+            .tweet {
+                display: flex;
+                border: 1px solid;
+                padding: 2em;
+            }
+        }
+    }
+
+    #profile {
+        display: none;
+        flex-direction: column;
+        width: 50%;
+
+        .title {
+            font-weight: bold;
+        }
+
+        .info-profile {
+            .profile {
+                width: 4em;
+                height: 4em;
+                border-radius: 60%;
+                margin-right: 2em;
+            }
+        }
+
+        .info {
+            .info-bottom {
+                .bio {
+                    .joined {
+                        .calendar {
+                            width: 1em;
+                            height: 1em;
+                        }
+                    }
+                }
+            }
+        }
+
         .feed {
             display: flex;
             flex-direction: column;
@@ -117,7 +161,7 @@ body {
         }
     }
 
-    .right-menu {
+    #right-menu {
         display: flex;
         flex-direction: column;
         width: 20%;

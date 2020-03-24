@@ -103,12 +103,12 @@ body {
     vertical-align: middle;
 }
 
-.main .feed {
+.main .feed-container {
     display: flex;
     flex-direction: column;
 }
 
-.main .feed .tweet {
+.main .feed-container .tweet {
     display: flex;
     border: 1px solid;
     padding: 2em;
