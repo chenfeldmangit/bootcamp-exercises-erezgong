@@ -1,0 +1,9 @@
+@import "constants";
+
+@mixin font($min-width, $max-width) {
+  @if ($min-width == $iphone-x-width and $max-width == $iphone-x-height){
+    @media only screen and (min-width: #{$iphone-x-width}) and (max-width: #{$iphone-x-height - 1px}) and (-webkit-min-device-pixel-ratio: 3)  {
+      @content;
+    }
+  }
+}

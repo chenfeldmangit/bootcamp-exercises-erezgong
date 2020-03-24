@@ -1,0 +1,132 @@
+body {
+    font-family: Calibri;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.left-menu {
+    width: 5em;
+}
+
+.left-menu .list {
+    display: flex;
+    flex-direction: column;
+}
+
+.left-menu .logo {
+    width: 5em;
+    height: 5em;
+}
+
+.left-menu .item {
+    display: flex;
+    align-items: center;
+    border: 0;
+    width: 11em;
+}
+
+.left-menu .item:hover {
+    border-radius: 1em;
+    background-color: #beeaff;
+}
+
+.left-menu .icon {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    margin-left: 1em;
+}
+
+.left-menu .caption {
+     float: right;
+     font-size: 14px;
+     font-weight: bold;
+     vertical-align: middle;
+     padding-left: 1em;
+ }
+
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 50em;
+}
+
+.main .title {
+    font-weight: bold;
+}
+
+.main .status {
+    display: flex;
+    vertical-align: middle;
+}
+
+.main .profile {
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    margin-right: 2em;
+}
+
+.main .status-container {
+    margin-bottom: 4em;
+
+}
+
+.main .status-container .status textarea {
+    font-family: inherit;
+}
+
+.main .status-container .interaction {
+    display: flex;
+    margin-top: 1em;
+}
+
+.main .status-container .interaction .icon {
+    width: 2em;
+    height: 2em;
+    margin-right: 1em;
+}
+
+.main .status-container .interaction .tweet-button {
+    margin-left: 9em;
+    border-radius: 1em;
+    background-color: dodgerblue;
+    width: 6em;
+    height: 2em;
+    text-align: center;
+}
+
+.main .status-container .interaction .tweet-button .caption {
+    font-family: inherit;
+    color: white;
+    vertical-align: middle;
+}
+
+.main .feed {
+    display: flex;
+    flex-direction: column;
+}
+
+.main .feed .tweet {
+    display: flex;
+    border: 1px solid;
+    padding: 2em;
+}
+
+.right-menu {
+    display: flex;
+    flex-direction: column;
+    width: 12em;
+}
+
+.right-menu .trends {
+    display: flex;
+    flex-direction: column;
+}
+
+.right-menu .trends .trend {
+    font-weight: bold;
+}
+
+

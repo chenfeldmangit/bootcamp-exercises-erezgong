@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Twitter">
     <link rel="shortcut icon" type="image/x-icon" href="assets/twitter.ico">
     <link rel="stylesheet" href="stylesheet/style.css">
@@ -54,13 +55,21 @@
                 <textarea rows="5" cols="50">What's happening?</textarea>
             </div>
             <div class="interaction">
-                <img class="icon" src="assets/interactions/picture.svg">
-                <img class="icon" src="assets/interactions/gif.svg">
-                <img class="icon" src="assets/interactions/poll.svg">
-                <img class="icon" src="assets/interactions/emoji.svg">
-                <button class="tweet-button">
-                    <span>Tweet</span>
-                </button>
+                <div class="icon-wrapper">
+                    <img class="icon" src="assets/interactions/picture.svg">
+                </div>
+                <div class="icon-wrapper">
+                    <img class="icon" src="assets/interactions/gif.svg">
+                </div>
+                <div class="icon-wrapper">
+                    <img class="icon" src="assets/interactions/poll.svg">
+                </div>
+                <div class="icon-wrapper">
+                    <img class="icon" src="assets/interactions/emoji.svg">
+                </div>
+                <div class="tweet-button">
+                    <span class="caption">Tweet</span>
+                </div>
             </div>
         </div>
         <div class="feed">

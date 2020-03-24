@@ -1,121 +1,113 @@
 body {
-    font-family: Calibri;
-    font-size: 15px;
-    display: flex;
-    justify-content: space-evenly;
+  font-family: Calibri;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+@media only screen and (min-width: 375px) and (max-width: 811px) and (-webkit-min-device-pixel-ratio: 3) {
+  body {
+    font-size: 5px;
+  }
+}
+body .left-menu {
+  width: 10%;
+}
+body .left-menu .list {
+  display: flex;
+  flex-direction: column;
+}
+body .left-menu .logo {
+  width: 5em;
+  height: 5em;
+}
+body .left-menu .item {
+  display: flex;
+  align-items: center;
+  border: 0;
+  width: 11em;
+}
+body .left-menu .item:hover {
+  border-radius: 1em;
+  background-color: #beeaff;
+}
+body .left-menu .item .icon {
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  margin-left: 1em;
+}
+body .left-menu .item .caption {
+  float: right;
+  font-weight: bold;
+  vertical-align: middle;
+  padding-left: 1em;
+}
+body .main {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+body .main .title {
+  font-weight: bold;
+}
+body .main .profile {
+  width: 4em;
+  height: 4em;
+  border-radius: 60%;
+  margin-right: 2em;
+}
+body .main .status-container {
+  margin-bottom: 4em;
+}
+body .main .status-container .status {
+  display: flex;
+  vertical-align: middle;
+}
+body .main .status-container .status textarea {
+  font-family: inherit;
+}
+body .main .status-container .interaction {
+  display: flex;
+  margin-top: 1em;
+}
+body .main .status-container .interaction .icon {
+  width: 2em;
+  height: 2em;
+  margin-right: 1em;
+}
+body .main .status-container .interaction .tweet-button {
+  margin-left: 9em;
+  border-radius: 1em;
+  background-color: dodgerblue;
+  width: 6em;
+  height: 2em;
+  text-align: center;
+}
+body .main .status-container .interaction .tweet-button .caption {
+  font-family: inherit;
+  color: white;
+  vertical-align: middle;
+}
+body .main .feed {
+  display: flex;
+  flex-direction: column;
+}
+body .main .feed .tweet {
+  display: flex;
+  border: 1px solid;
+  padding: 2em;
+}
+body .right-menu {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+body .right-menu .trends {
+  display: flex;
+  flex-direction: column;
+}
+body .right-menu .trends .trend {
+  font-weight: bold;
 }
 
-.left-menu {
-    width: 5em;
-}
-
-.left-menu .list {
-    display: flex;
-    flex-direction: column;
-}
-
-.left-menu .logo {
-    width: 5em;
-    height: 5em;
-}
-
-.left-menu .item {
-    display: flex;
-    align-items: center;
-    border: 0;
-    width: 11em;
-}
-
-.left-menu .item:hover {
-    border-radius: 1em;
-    background-color: #beeaff;
-}
-
-.left-menu .icon {
-    width: 3em;
-    height: 3em;
-    border-radius: 50%;
-    margin-left: 1em;
-}
-
-.left-menu .caption {
-     float: right;
-     font-size: 14px;
-     font-weight: bold;
-     vertical-align: middle;
-     padding-left: 1em;
- }
-
-.main {
-    display: flex;
-    flex-direction: column;
-    width: 50em;
-}
-
-.main .title {
-    font-weight: bold;
-}
-
-.main .status {
-    display: flex;
-    vertical-align: middle;
-}
-
-.main .profile {
-    width: 4em;
-    height: 4em;
-    border-radius: 50%;
-    margin-right: 2em;
-}
-
-.main .status-container {
-    margin-bottom: 4em;
-}
-
-.main .status-container .status textarea {
-    font-family: inherit;
-}
-
-.main .status-container .interaction {
-    display: flex;
-    margin-top: 1em;
-}
-
-.main .interaction .icon {
-    width: 2em;
-    height: 2em;
-    margin-right: 1em;
-}
-
-.main .interaction .tweet-button {
-    margin-left: 11em;
-    font-family: inherit;
-}
-
-.main .feed {
-    display: flex;
-    flex-direction: column;
-}
-
-.main .feed .tweet {
-    display: flex;
-    border: 1px solid;
-    padding: 2em;
-}
-
-.right-menu {
-    display: flex;
-    flex-direction: column;
-    width: 12em;
-}
-
-.right-menu .trends {
-    display: flex;
-    flex-direction: column;
-}
-
-.right-menu .trends .trend {
-    font-weight: bold;
-}
-
-
+/*# sourceMappingURL=style.css.map */

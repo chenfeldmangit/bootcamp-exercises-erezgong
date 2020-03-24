@@ -1,0 +1,138 @@
+@import "constants", "mixins";
+
+body {
+    font-family: Calibri;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+
+    @include font($iphone-x-width, $iphone-x-height){
+        font-size: 5px;
+    }
+
+    .left-menu {
+        width: 10%;
+
+        .list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            width: 5em;
+            height: 5em;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            border: 0;
+            width: 11em;
+
+            &:hover {
+                border-radius: 1em;
+                background-color: #beeaff;
+            }
+
+            .icon {
+                width: 3em;
+                height: 3em;
+                border-radius: 50%;
+                margin-left: 1em;
+            }
+
+            .caption {
+                float: right;
+                font-weight: bold;
+                vertical-align: middle;
+                padding-left: 1em;
+            }
+        }
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+
+        .title {
+            font-weight: bold;
+        }
+
+        .profile {
+            width: 4em;
+            height: 4em;
+            border-radius: 60%;
+            margin-right: 2em;
+        }
+
+        .status-container {
+            margin-bottom: 4em;
+
+            .status {
+                display: flex;
+                vertical-align: middle;
+
+                textarea {
+                    font-family: inherit;
+                }
+            }
+
+            .interaction {
+                display: flex;
+                margin-top: 1em;
+
+                .icon {
+                    width: 2em;
+                    height: 2em;
+                    margin-right: 1em;
+                }
+
+                .tweet-button {
+                    margin-left: 9em;
+                    border-radius: 1em;
+                    background-color: $twitter-color;
+                    width: 6em;
+                    height: 2em;
+                    text-align: center;
+
+                    .caption {
+                        font-family: inherit;
+                        color: white;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+
+        .feed {
+            display: flex;
+            flex-direction: column;
+
+            .tweet {
+                display: flex;
+                border: 1px solid;
+                padding: 2em;
+            }
+        }
+    }
+
+    .right-menu {
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+
+        .trends {
+            display: flex;
+            flex-direction: column;
+
+            .trend {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+
+
+
