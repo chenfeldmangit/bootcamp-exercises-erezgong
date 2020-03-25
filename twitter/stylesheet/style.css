@@ -89,11 +89,11 @@ body #home .status-container .interaction .tweet-button .caption {
   color: white;
   vertical-align: middle;
 }
-body #home .feed-container {
+body #home .feed {
   display: flex;
   flex-direction: column;
 }
-body #home .feed-container .tweet {
+body #home .feed .tweet {
   display: flex;
   border: 1px solid;
   padding: 2em;
@@ -106,7 +106,7 @@ body #profile {
 body #profile .title {
   font-weight: bold;
 }
-body #profile .info-profile .profile {
+body #profile .profile {
   width: 4em;
   height: 4em;
   border-radius: 60%;

@@ -106,7 +106,7 @@ body {
             }
         }
 
-        .feed-container {
+        .feed {
             display: flex;
             flex-direction: column;
 
@@ -127,13 +127,11 @@ body {
             font-weight: bold;
         }
 
-        .info-profile {
-            .profile {
-                width: 4em;
-                height: 4em;
-                border-radius: 60%;
-                margin-right: 2em;
-            }
+        .profile {
+            width: 4em;
+            height: 4em;
+            border-radius: 60%;
+            margin-right: 2em;
         }
 
         .info {
