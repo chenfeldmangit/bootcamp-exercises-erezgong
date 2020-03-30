@@ -1,178 +1,232 @@
 @import "constants", "mixins";
 
 body {
-    font-family: Calibri;
-    font-size: 15px;
+  font-family: Calibri;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+
+  @include font($iphone-x-width, $iphone-x-height) {
+    font-size: 5px;
+  }
+
+  .side-menu {
+    align-self: flex-start;
+    position: sticky;
+    top: 0;
+  }
+
+  #left-menu {
+    width: 10%;
+
+    .list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo {
+      width: 5em;
+      height: 5em;
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      border: 0;
+      width: 14em;
+      padding: 0.25em;
+      margin-bottom: 1em;
+
+      &:hover {
+        border-radius: 1em;
+        background-color: #beeaff;
+      }
+
+      .icon {
+        width: 3em;
+        height: 3em;
+        border-radius: 50%;
+        margin-left: 1em;
+      }
+
+      .caption {
+        font-size: 1.3em;
+        float: right;
+        font-weight: bold;
+        vertical-align: middle;
+        padding-left: 1em;
+      }
+    }
+  }
+
+  .profile {
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    margin-right: 2em;
+  }
+
+  .tweet-button-caption {
+    font-family: inherit;
+    color: white;
+    vertical-align: middle;
+  }
+
+  #home {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    width: 50%;
 
-    @include font($iphone-x-width, $iphone-x-height){
-        font-size: 5px;
+    .title {
+      font-weight: bold;
     }
 
-    #left-menu {
-        width: 10%;
+    .status-container {
+      margin-bottom: 4em;
 
-        .list {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo {
-            width: 5em;
-            height: 5em;
-        }
-
-        .item {
-            display: flex;
-            align-items: center;
-            border: 0;
-            width: 11em;
-            margin-bottom: 1em;
-
-            &:hover {
-                border-radius: 1em;
-                background-color: #beeaff;
-            }
-
-            .icon {
-                width: 3em;
-                height: 3em;
-                border-radius: 50%;
-                margin-left: 1em;
-            }
-
-            .caption {
-                float: right;
-                font-weight: bold;
-                vertical-align: middle;
-                padding-left: 1em;
-            }
-        }
-    }
-
-    #home {
+      .status {
         display: flex;
-        flex-direction: column;
-        width: 50%;
+        vertical-align: middle;
 
-        .title {
-            font-weight: bold;
+        textarea {
+          font-family: inherit;
         }
+      }
+
+      .interaction {
+        display: flex;
+        margin-top: 1em;
+
+        .icon {
+          width: 2em;
+          height: 2em;
+          margin-right: 1em;
+        }
+
+        .tweet-button {
+          margin-left: 9em;
+          border-radius: 1em;
+          background-color: $twitter-color;
+          width: 6em;
+          height: 2em;
+          text-align: center;
+        }
+      }
+    }
+
+    .feed {
+      display: flex;
+      flex-direction: column;
+
+      .tweet {
+        display: flex;
+        border: 1px solid;
+        padding: 2em;
+      }
+    }
+  }
+
+  #profile {
+    display: none;
+    flex-direction: column;
+    width: 50%;
+
+    .title {
+      font-weight: bold;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+
+      .info-top {
+        .cover {
+
+        }
+      }
+
+      .info-profile {
+        position: relative;
+        top: -6em;
+        margin-left: 2em;
 
         .profile {
-            width: 4em;
-            height: 4em;
-            border-radius: 60%;
-            margin-right: 2em;
+          width: 12em;
+          height: 12em;
+          border-radius: 50%;
+          border: 0.5em solid white;
         }
+      }
 
-        .status-container {
-            margin-bottom: 4em;
-
-            .status {
-                display: flex;
-                vertical-align: middle;
-
-                textarea {
-                    font-family: inherit;
-                }
-            }
-
-            .interaction {
-                display: flex;
-                margin-top: 1em;
-
-                .icon {
-                    width: 2em;
-                    height: 2em;
-                    margin-right: 1em;
-                }
-
-                .tweet-button {
-                    margin-left: 9em;
-                    border-radius: 1em;
-                    background-color: $twitter-color;
-                    width: 6em;
-                    height: 2em;
-                    text-align: center;
-
-                    .caption {
-                        font-family: inherit;
-                        color: white;
-                        vertical-align: middle;
-                    }
-                }
-            }
-        }
-
-        .feed {
-            display: flex;
-            flex-direction: column;
-
-            .tweet {
-                display: flex;
-                border: 1px solid;
-                padding: 2em;
-            }
-        }
-    }
-
-    #profile {
-        display: none;
-        flex-direction: column;
-        width: 50%;
-
-        .title {
-            font-weight: bold;
-        }
-
-        .profile {
-            width: 4em;
-            height: 4em;
-            border-radius: 60%;
-            margin-right: 2em;
-        }
-
-        .info {
-            .info-bottom {
-                .bio {
-                    .joined {
-                        .calendar {
-                            width: 1em;
-                            height: 1em;
-                        }
-                    }
-                }
-            }
-        }
-
-        .feed {
-            display: flex;
-            flex-direction: column;
-
-            .tweet {
-                display: flex;
-                border: 1px solid;
-                padding: 2em;
-            }
-        }
-    }
-
-    #right-menu {
+      .info-bottom {
         display: flex;
         flex-direction: column;
-        width: 20%;
 
-        .trends {
-            display: flex;
-            flex-direction: column;
-
-            .trend {
-                font-weight: bold;
-            }
+        .edit-profile {
+          border-radius: 1em;
+          background-color: $twitter-color;
+          width: 6em;
+          height: 2em;
+          text-align: center;
+          float: right;
         }
+
+        .bio {
+          display: flex;
+          flex-direction: column;
+
+          .joined {
+            display: flex;
+
+            .calendar {
+              width: 1em;
+              height: 1em;
+            }
+          }
+
+          .follow {
+            display: flex;
+
+            .unit {
+              margin-right: 1em;
+
+              .count {
+                font-weight: bold;
+              }
+            }
+
+          }
+
+        }
+      }
     }
+
+    .feed {
+      display: flex;
+      flex-direction: column;
+
+      .tweet {
+        display: flex;
+        border: 1px solid;
+        padding: 2em;
+      }
+    }
+  }
+
+  #right-menu {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+
+    .trends {
+      display: flex;
+      flex-direction: column;
+
+      .trend {
+        font-weight: bold;
+      }
+    }
+  }
 }
 
 

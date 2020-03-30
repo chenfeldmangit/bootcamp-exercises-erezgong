@@ -38,7 +38,7 @@ body {
     margin-left: 1em;
 }
 
-.left-menu .caption {
+.left-menu .tweet-button-caption {
      float: right;
      font-size: 14px;
      font-weight: bold;
@@ -97,7 +97,7 @@ body {
     text-align: center;
 }
 
-.main .status-container .interaction .tweet-button .caption {
+.main .status-container .interaction .tweet-button .tweet-button-caption {
     font-family: inherit;
     color: white;
     vertical-align: middle;
