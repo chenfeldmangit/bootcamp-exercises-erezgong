@@ -1,9 +1,26 @@
 window.onload = () => {
-    let profile = document.getElementById("left-menu-profile");
-    profile.addEventListener("click", showProfile);
+    let profileElement = document.getElementById("left-menu-profile");
+    profileElement.addEventListener("click", showProfile);
 
-    let home = document.getElementById("left-menu-home");
-    home.addEventListener("click", showHome);
+    let homeElement = document.getElementById("left-menu-home");
+    homeElement.addEventListener("click", showHome);
+
+    let startEditProfileElement = document.getElementById("start-edit-profile");
+    startEditProfileElement.addEventListener("click", startEditProfile);
+
+    let saveEditProfileElement = document.getElementById("save-edit-profile");
+    saveEditProfileElement.addEventListener("click", saveEditProfile);
+
+    let closeEditProfileElement = document.getElementById("close-edit-profile");
+    closeEditProfileElement.addEventListener("click", closeEditProfile);
+
+    let nameTextArea = document.querySelector("#edit-profile .form #edit-profile-item-name .textarea");
+    let nameCounter = document.querySelector("#edit-profile .form #edit-profile-item-name .counter");
+    nameTextArea.addEventListener("keyup", () => nameCounter.innerHTML = nameTextArea.value.length + "/50");
+
+    let tagTextArea = document.querySelector("#edit-profile .form #edit-profile-item-tag .textarea");
+    let tagCounter = document.querySelector("#edit-profile .form #edit-profile-item-tag .counter");
+    tagTextArea.addEventListener("keyup", () => tagCounter.innerHTML = tagTextArea.value.length + "/50");
 };
 
 const showProfile = () => {
@@ -25,8 +42,45 @@ const showHome = ()  => {
     cleanTweets()
 };
 
+const startEditProfile = () => {
+    let nameTextArea = document.querySelector("#edit-profile .form #edit-profile-item-name .textarea");
+    nameTextArea.innerHTML = userData.name;
+    let tagTextArea = document.querySelector("#edit-profile .form #edit-profile-item-tag .textarea");
+    tagTextArea.innerHTML = userData.tag;
+
+    let nameCounter = document.querySelector("#edit-profile .form #edit-profile-item-name .counter");
+    nameCounter.innerHTML = userData.name.length + "/50";
+    let tagCounter = document.querySelector("#edit-profile .form #edit-profile-item-tag .counter");
+    tagCounter.innerHTML = userData.tag.length + "/50";
+
+    let editProfileOverlay = document.getElementById("edit-profile-overlay");
+    editProfileOverlay.style.display = "flex";
+};
+
+const saveEditProfile = ()  => {
+    let nameTextArea = document.querySelector("#edit-profile .form #edit-profile-item-name .textarea");
+    userData.name = nameTextArea.value;
+    let tag = document.querySelector("#edit-profile .form #edit-profile-item-tag .textarea");
+    userData.tag = tag.value;
+
+    loadUserData();
+
+    let editProfileOverlay = document.getElementById("edit-profile-overlay");
+    editProfileOverlay.style.display = "none";
+};
+
+const closeEditProfile = ()  => {
+    let nameTextArea = document.querySelector("#edit-profile .form #edit-profile-item-name .textarea");
+    nameTextArea.innerHTML = "";
+    let tag = document.querySelector("#edit-profile .form #edit-profile-item-tag .textarea");
+    tag.innerHTML = "";
+
+    let editProfileOverlay = document.getElementById("edit-profile-overlay");
+    editProfileOverlay.style.display = "none";
+};
+
 const loadUserData = () => {
-    let coverImage = document.querySelector("#profile .info .info-top .cover");
+    let coverImage = document.querySelector("#profile .info .info-cover .cover");
     coverImage.setAttribute("src", userData.cover);
 
     let profileImage = document.querySelector("#profile .info .info-profile .profile");
@@ -52,7 +106,7 @@ const loadTweets = () => {
     let feed = document.querySelector("#profile .feed");
     let tweetTemplate = document.querySelector("#profile .feed .tweet-template");
 
-    tweets.tweets.forEach(tweet => {
+    tweets.forEach(tweet => {
             let clone = tweetTemplate.content.cloneNode(true);
 
             let profileImage = document.querySelector(".tweet .profile");
@@ -86,22 +140,20 @@ let userData = {
     "followers": 1
 };
 
-let tweets = {
-    "tweets": [
-        {
-            "profile": "assets/profile.jpg",
-            "author": "Erez Bizo",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-            "profile": "assets/profile.jpg",
-            "author": "Erez Bizo",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-            "profile": "assets/profile.jpg",
-            "author": "Erez Bizo",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        }
-    ]
-};
+let tweets = [
+    {
+        "profile": "assets/profile.jpg",
+        "author": "Erez Bizo",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+        "profile": "assets/profile.jpg",
+        "author": "Erez Bizo",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+        "profile": "assets/profile.jpg",
+        "author": "Erez Bizo",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    }
+];

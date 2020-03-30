@@ -1,8 +1,9 @@
 body {
   font-family: Calibri;
-  font-size: 15px;
+  font-size: 16px;
   display: flex;
   justify-content: space-between;
+  margin: 0;
 }
 @media only screen and (min-width: 375px) and (max-width: 811px) and (-webkit-min-device-pixel-ratio: 3) {
   body {
@@ -14,8 +15,39 @@ body .side-menu {
   position: sticky;
   top: 0;
 }
+body .big-button {
+  display: flex;
+  justify-content: center;
+  border-radius: 1em;
+  background-color: dodgerblue;
+  width: 5.2em;
+  height: 1.7em;
+  font-size: 2em;
+  font-weight: bold;
+}
+body .big-button .caption {
+  font-family: inherit;
+  line-height: 1;
+  color: white;
+  height: 1em;
+  align-self: center;
+}
+body .small-button {
+  display: flex;
+  justify-content: center;
+  border-radius: 1em;
+  background-color: dodgerblue;
+  width: 6em;
+  height: 2em;
+}
+body .small-button .caption {
+  font-family: inherit;
+  color: white;
+  font-weight: bold;
+  align-self: center;
+}
 body #left-menu {
-  width: 10%;
+  width: 20%;
 }
 body #left-menu .list {
   display: flex;
@@ -24,6 +56,8 @@ body #left-menu .list {
 body #left-menu .logo {
   width: 5em;
   height: 5em;
+  margin-left: 1em;
+  margin-bottom: 1em;
 }
 body #left-menu .item {
   display: flex;
@@ -50,29 +84,27 @@ body #left-menu .item .caption {
   vertical-align: middle;
   padding-left: 1em;
 }
+body #left-menu .tweet {
+  margin-left: 0.3em;
+  width: 7em;
+}
 body .profile {
   width: 4em;
   height: 4em;
   border-radius: 50%;
   margin-right: 2em;
 }
-body .tweet-button-caption {
-  font-family: inherit;
-  color: white;
-  vertical-align: middle;
+body .main {
+  flex-direction: column;
+  width: 55%;
 }
-body .title {
+body .main .title {
   font-weight: bold;
-  font-size: 2em;
+  font-size: 2.2em;
   margin: 0.5em;
 }
 body #home {
   display: flex;
-  flex-direction: column;
-  width: 50%;
-}
-body #home .title {
-  font-weight: bold;
 }
 body #home .status-container {
   margin-bottom: 4em;
@@ -93,13 +125,8 @@ body #home .status-container .interaction .icon {
   height: 2em;
   margin-right: 1em;
 }
-body #home .status-container .interaction .tweet-button {
+body #home .status-container .interaction .tweet {
   margin-left: 9em;
-  border-radius: 1em;
-  background-color: dodgerblue;
-  width: 6em;
-  height: 2em;
-  text-align: center;
 }
 body #home .feed {
   display: flex;
@@ -112,14 +139,12 @@ body #home .feed .tweet {
 }
 body #profile {
   display: none;
-  flex-direction: column;
-  width: 50%;
 }
 body #profile .info {
   display: flex;
   flex-direction: column;
 }
-body #profile .info .info-top .cover {
+body #profile .info .info-cover .cover {
   width: 100%;
   height: 100%;
 }
@@ -139,13 +164,6 @@ body #profile .info .info-profile .profile {
   top: -6em;
 }
 body #profile .info .info-profile .edit-profile {
-  border-radius: 1em;
-  font-size: 2em;
-  font-weight: bold;
-  background-color: dodgerblue;
-  width: 5.2em;
-  height: 1.7em;
-  text-align: center;
   margin-top: 0.2em;
   margin-right: 0.2em;
 }
@@ -212,6 +230,48 @@ body #right-menu .trends {
 }
 body #right-menu .trends .trend {
   font-weight: bold;
+}
+body .overlay-background {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: none;
+}
+body .overlay-background .overlay-window {
+  position: absolute;
+  left: 30%;
+  top: 20%;
+  background-color: white;
+  width: 40%;
+  height: 60%;
+  border-radius: 1em;
+}
+body #edit-profile .header {
+  display: flex;
+  justify-content: space-between;
+}
+body #edit-profile .header .header-item {
+  margin: 0.5em;
+}
+body #edit-profile .header .icon {
+  width: 2em;
+  height: 2em;
+  margin-right: 1em;
+}
+body #edit-profile .form {
+  display: flex;
+  flex-direction: column;
+}
+body #edit-profile .form .form-item {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+body #edit-profile .form .form-item .counter {
+  align-self: flex-end;
 }
 
 /*# sourceMappingURL=style.css.map */

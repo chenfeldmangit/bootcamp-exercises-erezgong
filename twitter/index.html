@@ -45,10 +45,13 @@
                 <img class="icon" src="assets/home/side-menu/more-icon.svg" alt="More">
                 <span class="caption">More</span>
             </div>
+            <div class="tweet big-button">
+                <span class="caption">Tweet</span>
+            </div>
         </div>
     </div>
 
-    <div id="home">
+    <div id="home" class="main">
         <h2 class="title">Home</h2>
         <div class="status-container">
             <div class="status">
@@ -68,8 +71,8 @@
                 <div class="icon-wrapper">
                     <img class="icon" src="assets/home/interactions/emoji.svg">
                 </div>
-                <div class="tweet-button">
-                    <span class="tweet-button-caption">Tweet</span>
+                <div class="small-button tweet">
+                    <span class="caption">Tweet</span>
                 </div>
             </div>
         </div>
@@ -105,16 +108,16 @@
         </div>
     </div>
 
-    <div id="profile">
+    <div id="profile" class="main">
         <h2 class="title">Profile</h2>
         <div class="info">
-            <div class="info-top">
+            <div class="info-cover">
                 <img class="cover" src="">
             </div>
             <div class="info-profile">
                 <img class="profile" src="">
-                <div class="edit-profile">
-                    <span class="tweet-button-caption">Edit Profile</span>
+                <div id="start-edit-profile" class="edit-profile big-button">
+                    <span class="caption">Edit Profile</span>
                 </div>
             </div>
             <div class="info-bottom">
@@ -174,6 +177,36 @@
             <div class="trend">supreme court</div>
             <div class="trend">#pandemic</div>
             <div class="trend">#stayhome</div>
+        </div>
+    </div>
+
+    <div id="edit-profile-overlay" class="overlay-background">
+        <div id="edit-profile" class="overlay-window">
+            <div class="header">
+                <div id="close-edit-profile" class="icon-wrapper header-item">
+                    <img class="icon" src="assets/profile/close.svg">
+                </div>
+                <h2 class="title header-item">Edit Profile</h2>
+                <div id="save-edit-profile" class="small-button save header-item">
+                    <span class="caption">Save</span>
+                </div>
+            </div>
+            <div class="info">
+                <div class="info-cover"></div>
+                <div class="info-profile"></div>
+            </div>
+            <div class="form">
+                <div id="edit-profile-item-name" class="form-item">
+                    <span class="caption">Name</span>
+                    <textarea class="textarea" maxlength="50"></textarea>
+                    <span class="counter"></span>
+                </div>
+                <div id="edit-profile-item-tag" class="form-item">
+                    <span class="caption">Tag</span>
+                    <textarea class="textarea" maxlength="50"></textarea>
+                    <span class="counter"></span>
+                </div>
+            </div>
         </div>
     </div>
 </body>
