@@ -145,9 +145,21 @@ body {
         .icon {
           width: 2em;
           height: 2em;
-          margin-right: 1em;
         }
       }
+    }
+  }
+
+  .icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5em;
+    height: 2.5em;
+
+    &:hover {
+      border-radius: 1em;
+      background-color: #beeaff;
     }
   }
 
@@ -170,11 +182,15 @@ body {
         display: flex;
         margin-top: 1em;
 
-        .icon {
-          width: 2em;
-          height: 2em;
+        .icon-wrapper {
           margin-right: 1em;
+
+          .icon {
+            width: 2em;
+            height: 2em;
+          }
         }
+
 
         .tweet {
           margin-left: 9em;

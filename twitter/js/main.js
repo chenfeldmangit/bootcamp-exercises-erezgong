@@ -146,6 +146,11 @@ const loadTweets = (mainWindow) => {
                         let likeButton = clone.querySelector(".like-tweet-icon");
                         likeButton.addEventListener("click", likeTweet);
 
+                        if (tweet.liked) {
+                            let likeIcon = clone.querySelector(".like-tweet-icon .icon");
+                            likeIcon.style.fill = "red";
+                        }
+
                         feed.appendChild(clone)
                     }
                 )
@@ -170,7 +175,7 @@ const addTweet = () => {
 };
 
 const likeTweet = event => {
-    let tweetId = event.target.parentElement.parentElement.getAttribute("data-id");
+    let tweetId = event.currentTarget.parentElement.parentElement.getAttribute("data-id");
 
     TweetAPI.likeTweet(tweetId)
         .then(() => {

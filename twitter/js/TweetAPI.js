@@ -5,7 +5,7 @@ class TweetAPI {
                 setTimeout(() => {
                     let tweets = JSON.parse(localStorage.getItem(tweetsKey)).reverse();
                     resolve(tweets);
-                }, 2000)
+                }, 1000)
             } catch (error) {
                 reject(error);
             }
@@ -30,12 +30,12 @@ class TweetAPI {
             try {
                 let tweets = JSON.parse(localStorage.getItem(tweetsKey));
                 tweets.map(tweet => {
-                        if (tweet.id === tweetId) {
-                            tweets.liked = true;
+                        if (tweet.id === parseInt(tweetId)) {
+                            tweet.liked = !tweet.liked;
                         }
                     }
                 );
-                localStorage.setItem(tweetsKey, JSON.stringify([tweets]));
+                localStorage.setItem(tweetsKey, JSON.stringify(tweets));
                 resolve();
             } catch (error) {
                 reject(error);

@@ -126,7 +126,17 @@ body .feed .tweet .interaction {
 body .feed .tweet .interaction .icon {
   width: 2em;
   height: 2em;
-  margin-right: 1em;
+}
+body .icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5em;
+  height: 2.5em;
+}
+body .icon-wrapper:hover {
+  border-radius: 1em;
+  background-color: #beeaff;
 }
 body #home {
   display: flex;
@@ -145,10 +155,12 @@ body #home .status-container .interaction {
   display: flex;
   margin-top: 1em;
 }
-body #home .status-container .interaction .icon {
+body #home .status-container .interaction .icon-wrapper {
+  margin-right: 1em;
+}
+body #home .status-container .interaction .icon-wrapper .icon {
   width: 2em;
   height: 2em;
-  margin-right: 1em;
 }
 body #home .status-container .interaction .tweet {
   margin-left: 9em;
