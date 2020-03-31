@@ -9,11 +9,9 @@ window.onload = async () => {
     await loadTweets("home");
 
     registerLeftMenu();
+    registerHome();
     registerEditProfile();
-
-    // add-tweet:
-    let tweetButton = document.querySelector("#home .status-container #add-tweet");
-    tweetButton.addEventListener("click", addTweet);
+    registerRightMenu();
 };
 
 const registerLeftMenu = () => {
@@ -24,7 +22,15 @@ const registerLeftMenu = () => {
     homeElement.addEventListener("click", showHome);
 };
 
+const registerHome = () => {
+    // add-tweet:
+    let tweetButton = document.querySelector("#home .status-container #add-tweet");
+    tweetButton.addEventListener("click", addTweet);
+};
+
 const registerEditProfile = () => {
+    // edit-profile-window:
+
     let startEditProfileElement = document.getElementById("start-edit-profile");
     startEditProfileElement.addEventListener("click", startEditProfile);
 
@@ -34,7 +40,7 @@ const registerEditProfile = () => {
     let closeEditProfileElement = document.getElementById("close-edit-profile");
     closeEditProfileElement.addEventListener("click", closeEditProfile);
 
-    // textArea counter:
+    // textarea-counter:
     let nameTextArea = document.querySelector("#edit-profile .form #edit-profile-item-name .box");
     let nameCounter = document.querySelector("#edit-profile .form #edit-profile-item-name .counter");
     nameTextArea.addEventListener("keyup", () => nameCounter.innerHTML = nameTextArea.value.length + "/50");
@@ -44,6 +50,11 @@ const registerEditProfile = () => {
     tagTextArea.addEventListener("keyup", () => tagCounter.innerHTML = tagTextArea.value.length + "/50");
 };
 
+
+const registerRightMenu = () => {
+    let searchTextArea = document.querySelector("#right-menu .search .box");
+    searchTextArea.addEventListener("keyup", searchTweet);
+};
 
 const showProfile = async () => {
     let home = document.getElementById("home");
@@ -128,11 +139,11 @@ const loadUserData = () => {
     followers.innerHTML = userData.followers;
 };
 
-const loadTweets = async (mainWindow) => {
+const loadTweets = async (mainWindow, filter) => {
     let loading = document.getElementById("loading");
     loading.style.display = "block";
 
-    let tweets = await TweetAPI.getTweets();
+    let tweets = await TweetAPI.getTweets(filter);
 
     let feed = document.querySelector("#" + mainWindow + " .feed");
     feed.innerHTML = "";
@@ -198,6 +209,11 @@ const deleteTweet = async event => {
     await loadTweets(main);
 };
 
+const searchTweet = async () => {
+    let searchTextArea = document.querySelector("#right-menu .search .box");
+    await loadTweets("home", tweet => tweet.text.includes(searchTextArea.value));
+};
+
 let initialUserData = {
     "cover": "assets/profile/cover.jpg",
     "profile": "assets/profile.jpg",
@@ -224,5 +240,4 @@ let initialTweets = [
         "Erez Bizo",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         false),
-
 ];

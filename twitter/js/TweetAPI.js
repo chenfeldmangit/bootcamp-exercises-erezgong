@@ -1,9 +1,12 @@
 class TweetAPI {
-    static getTweets = () => {
+    static getTweets = filter => {
         return new Promise((resolve, reject) => {
             try {
                 setTimeout(() => {
                     let tweets = JSON.parse(localStorage.getItem(tweetsKey)).reverse();
+                    if (filter !== undefined){
+                        tweets = tweets.filter(filter);
+                    }
                     resolve(tweets);
                 }, 1000)
             } catch (error) {

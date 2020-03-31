@@ -296,6 +296,15 @@ body {
     flex-direction: column;
     width: 20%;
 
+    .search {
+      display: flex;
+      flex-direction: column;
+
+      .box {
+        width: 80%;
+      }
+    }
+
     .trends {
       display: flex;
       flex-direction: column;

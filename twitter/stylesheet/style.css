@@ -243,6 +243,13 @@ body #right-menu {
   flex-direction: column;
   width: 20%;
 }
+body #right-menu .search {
+  display: flex;
+  flex-direction: column;
+}
+body #right-menu .search .box {
+  width: 80%;
+}
 body #right-menu .trends {
   display: flex;
   flex-direction: column;
