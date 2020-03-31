@@ -1,20 +1,30 @@
 const tweetsKey = "tweets";
 const userDataKey = "userData";
 
-window.onload = () => {
+
+window.onload = async () => {
     localStorage.setItem(tweetsKey, JSON.stringify(initialTweets));
     localStorage.setItem(userDataKey, JSON.stringify(initialUserData));
 
-    loadTweets("home");
+    await loadTweets("home");
 
-    // left-menu:
+    registerLeftMenu();
+    registerEditProfile();
+
+    // add-tweet:
+    let tweetButton = document.querySelector("#home .status-container #add-tweet");
+    tweetButton.addEventListener("click", addTweet);
+};
+
+const registerLeftMenu = () => {
     let profileElement = document.getElementById("left-menu-profile");
     profileElement.addEventListener("click", showProfile);
 
     let homeElement = document.getElementById("left-menu-home");
     homeElement.addEventListener("click", showHome);
+};
 
-    // edit-profile:
+const registerEditProfile = () => {
     let startEditProfileElement = document.getElementById("start-edit-profile");
     startEditProfileElement.addEventListener("click", startEditProfile);
 
@@ -25,27 +35,24 @@ window.onload = () => {
     closeEditProfileElement.addEventListener("click", closeEditProfile);
 
     // textArea counter:
-    let nameTextArea = document.querySelector("#edit-profile .form #edit-profile-item-name .textarea");
+    let nameTextArea = document.querySelector("#edit-profile .form #edit-profile-item-name .box");
     let nameCounter = document.querySelector("#edit-profile .form #edit-profile-item-name .counter");
     nameTextArea.addEventListener("keyup", () => nameCounter.innerHTML = nameTextArea.value.length + "/50");
 
-    let tagTextArea = document.querySelector("#edit-profile .form #edit-profile-item-tag .textarea");
+    let tagTextArea = document.querySelector("#edit-profile .form #edit-profile-item-tag .box");
     let tagCounter = document.querySelector("#edit-profile .form #edit-profile-item-tag .counter");
     tagTextArea.addEventListener("keyup", () => tagCounter.innerHTML = tagTextArea.value.length + "/50");
-
-    // add-tweet:
-    let tweetButton = document.querySelector("#home .status-container #add-tweet");
-    tweetButton.addEventListener("click", addTweet);
 };
 
-const showProfile = () => {
+
+const showProfile = async () => {
     let home = document.getElementById("home");
     let profile = document.getElementById("profile");
     home.style.display = "none";
     profile.style.display = "flex";
 
     loadUserData();
-    loadTweets("profile");
+    await loadTweets("profile");
 };
 
 const showHome = () => {
@@ -58,9 +65,9 @@ const showHome = () => {
 const startEditProfile = () => {
     let userData = JSON.parse(localStorage.getItem(userDataKey));
 
-    let nameTextArea = document.querySelector("#edit-profile .form #edit-profile-item-name .textarea");
+    let nameTextArea = document.querySelector("#edit-profile .form #edit-profile-item-name .box");
     nameTextArea.innerHTML = userData.name;
-    let tagTextArea = document.querySelector("#edit-profile .form #edit-profile-item-tag .textarea");
+    let tagTextArea = document.querySelector("#edit-profile .form #edit-profile-item-tag .box");
     tagTextArea.innerHTML = userData.tag;
 
     let nameCounter = document.querySelector("#edit-profile .form #edit-profile-item-name .counter");
@@ -75,9 +82,9 @@ const startEditProfile = () => {
 const saveEditProfile = () => {
     let userData = JSON.parse(localStorage.getItem(userDataKey));
 
-    let nameTextArea = document.querySelector("#edit-profile .form #edit-profile-item-name .textarea");
+    let nameTextArea = document.querySelector("#edit-profile .form #edit-profile-item-name .box");
     userData.name = nameTextArea.value;
-    let tag = document.querySelector("#edit-profile .form #edit-profile-item-tag .textarea");
+    let tag = document.querySelector("#edit-profile .form #edit-profile-item-tag .box");
     userData.tag = tag.value;
 
     loadUserData();
@@ -87,9 +94,9 @@ const saveEditProfile = () => {
 };
 
 const closeEditProfile = () => {
-    let nameTextArea = document.querySelector("#edit-profile .form #edit-profile-item-name .textarea");
+    let nameTextArea = document.querySelector("#edit-profile .form #edit-profile-item-name .box");
     nameTextArea.innerHTML = "";
-    let tag = document.querySelector("#edit-profile .form #edit-profile-item-tag .textarea");
+    let tag = document.querySelector("#edit-profile .form #edit-profile-item-tag .box");
     tag.innerHTML = "";
 
     let editProfileOverlay = document.getElementById("edit-profile-overlay");
@@ -121,73 +128,75 @@ const loadUserData = () => {
     followers.innerHTML = userData.followers;
 };
 
-const loadTweets = (mainWindow) => {
+const loadTweets = async (mainWindow) => {
     let loading = document.getElementById("loading");
     loading.style.display = "block";
 
-    TweetAPI.getTweets()
-        .then(tweets => {
-                let feed = document.querySelector("#" + mainWindow + " .feed");
-                feed.innerHTML = "";
+    let tweets = await TweetAPI.getTweets();
 
-                tweets.forEach(tweet => {
-                        let tweetTemplate = document.querySelector(".tweet-template");
-                        let clone = tweetTemplate.content.cloneNode(true);
+    let feed = document.querySelector("#" + mainWindow + " .feed");
+    feed.innerHTML = "";
 
-                        clone.firstElementChild.setAttribute("data-id", tweet.id);
+    tweets.forEach(tweet => {
+            let tweetTemplate = document.querySelector(".tweet-template");
+            let clone = tweetTemplate.content.cloneNode(true);
 
-                        let profileImage = clone.querySelector(".profile");
-                        profileImage.setAttribute("src", tweet.profile);
+            clone.firstElementChild.setAttribute("data-id", tweet.id);
 
-                        let author = clone.querySelector(".author");
-                        author.innerHTML = tweet.author;
+            let profileImage = clone.querySelector(".profile");
+            profileImage.setAttribute("src", tweet.profile);
 
-                        let text = clone.querySelector(".text");
-                        text.innerHTML = tweet.text;
+            let author = clone.querySelector(".author");
+            author.innerHTML = tweet.author;
 
-                        let likeButton = clone.querySelector(".like-tweet-icon");
-                        likeButton.addEventListener("click", likeTweet);
+            let text = clone.querySelector(".text");
+            text.innerHTML = tweet.text;
 
-                        if (tweet.liked) {
-                            let likeIcon = clone.querySelector(".like-tweet-icon .icon");
-                            likeIcon.style.fill = "red";
-                        }
+            let likeButton = clone.querySelector(".like-tweet-icon");
+            likeButton.addEventListener("click", likeTweet);
 
-                        loading.style.display = "none";
-                        feed.appendChild(clone)
-                    }
-                )
+            if (tweet.liked) {
+                let likeIcon = clone.querySelector(".like-tweet-icon .icon");
+                likeIcon.style.fill = "red";
             }
-        ).catch(errorFunction);
+
+            let deleteButton = clone.querySelector(".delete-tweet-icon");
+            deleteButton.addEventListener("click", deleteTweet);
+
+            feed.appendChild(clone)
+        }
+    );
+
+    loading.style.display = "none";
 };
 
-const addTweet = () => {
-    let tweetTextArea = document.querySelector("#home .status-container .status textarea");
-    let tweet = {
-        "profile": "assets/profile.jpg",
-        "author": "Erez Bizo",
-        "text": tweetTextArea.value,
-        "liked": false
-    };
-    TweetAPI.addTweet(tweet)
-        .then(() => {
-            tweetTextArea.value = "";
-            loadTweets("home");
-        })
-        .catch(errorFunction);
+const addTweet = async () => {
+    let tweetTextArea = document.querySelector("#home .status .box");
+    let tweet = new tweet(
+        undefined,
+        "assets/profile.jpg",
+        "Erez Bizo",
+        tweetTextArea.value,
+        false
+    );
+    await TweetAPI.addTweet(tweet);
+    tweetTextArea.value = "";
+    await loadTweets("home");
 };
 
-const likeTweet = event => {
+const likeTweet = async event => {
     let tweetId = event.currentTarget.parentElement.parentElement.getAttribute("data-id");
-
-    TweetAPI.likeTweet(tweetId)
-        .then(() => {
-            loadTweets("home");
-        })
-        .catch(errorFunction);
+    let main = event.currentTarget.parentElement.parentElement.parentElement.parentElement.id;
+    await TweetAPI.likeTweet(tweetId);
+    await loadTweets(main);
 };
 
-const errorFunction = error => console.log(error);
+const deleteTweet = async event => {
+    let tweetId = event.currentTarget.parentElement.parentElement.getAttribute("data-id");
+    let main = event.currentTarget.parentElement.parentElement.parentElement.parentElement.id;
+    await TweetAPI.deleteTweet(tweetId);
+    await loadTweets(main);
+};
 
 let initialUserData = {
     "cover": "assets/profile/cover.jpg",
@@ -200,25 +209,20 @@ let initialUserData = {
 };
 
 let initialTweets = [
-    {
-        "id": 0,
-        "profile": "assets/profile.jpg",
-        "author": "Erez Bizo",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "liked": false
-    },
-    {
-        "id": 1,
-        "profile": "assets/profile.jpg",
-        "author": "Erez Bizo",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "liked": false
-    },
-    {
-        "id": 2,
-        "profile": "assets/profile.jpg",
-        "author": "Erez Bizo",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "liked": false
-    }
+    new tweet(0,
+        "assets/profile.jpg",
+        "Erez Bizo",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        false),
+    new tweet(1,
+        "assets/profile.jpg",
+        "Erez Bizo",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        false),
+    new tweet(2,
+        "assets/profile.jpg",
+        "Erez Bizo",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        false),
+
 ];

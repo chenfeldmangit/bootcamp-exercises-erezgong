@@ -78,7 +78,7 @@ body {
 
       &:hover {
         border-radius: 1em;
-        background-color: #beeaff;
+        background-color: $hover-item-color;
       }
 
       .icon {
@@ -159,7 +159,7 @@ body {
 
     &:hover {
       border-radius: 1em;
-      background-color: #beeaff;
+      background-color: $hover-item-color;
     }
   }
 
@@ -316,12 +316,13 @@ body {
 
     .overlay-window {
       position: absolute;
-      left: 30%;
-      top: 20%;
+      left: 50%;
+      top: 50%;
       background-color: white;
       width: 40%;
       height: 60%;
       border-radius: 1em;
+      transform: translate(-50%,-50%);
     }
   }
 
@@ -370,14 +371,11 @@ body {
 
     img {
       position: absolute;
-      left: 49%;
-      top: 49%;
+      left: 50%;
+      top: 50%;
       width: 3em;
       height: 3em;
+      transform: translate(-50%,-50%);
     }
   }
 }
-
-
-
-

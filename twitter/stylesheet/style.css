@@ -260,12 +260,13 @@ body .overlay-background {
 }
 body .overlay-background .overlay-window {
   position: absolute;
-  left: 30%;
-  top: 20%;
+  left: 50%;
+  top: 50%;
   background-color: white;
   width: 40%;
   height: 60%;
   border-radius: 1em;
+  transform: translate(-50%, -50%);
 }
 body #edit-profile .header {
   display: flex;
@@ -301,10 +302,11 @@ body #loading {
 }
 body #loading img {
   position: absolute;
-  left: 49%;
-  top: 49%;
+  left: 50%;
+  top: 50%;
   width: 3em;
   height: 3em;
+  transform: translate(-50%, -50%);
 }
 
 /*# sourceMappingURL=style.css.map */
