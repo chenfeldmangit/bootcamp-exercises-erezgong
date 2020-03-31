@@ -98,7 +98,7 @@ body {
     }
 
     .tweet {
-      margin-left: 0.3em;
+      margin-left: 0.1em;
       width: 7em;
     }
   }
@@ -118,6 +118,36 @@ body {
       font-weight: bold;
       font-size: 2.2em;
       margin: 0.5em;
+    }
+  }
+
+  .feed {
+    display: flex;
+    flex-direction: column;
+
+    .tweet {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid;
+      padding: 2em;
+
+      .tweet-body {
+        display: flex;
+      }
+
+      .interaction {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1em;
+        padding-left: 6em;
+        padding-right: 6em;
+
+        .icon {
+          width: 2em;
+          height: 2em;
+          margin-right: 1em;
+        }
+      }
     }
   }
 
@@ -149,17 +179,6 @@ body {
         .tweet {
           margin-left: 9em;
         }
-      }
-    }
-
-    .feed {
-      display: flex;
-      flex-direction: column;
-
-      .tweet {
-        display: flex;
-        border: 1px solid;
-        padding: 2em;
       }
     }
   }
@@ -252,17 +271,6 @@ body {
         float: right;
         font-weight: bold;
         vertical-align: middle;
-      }
-    }
-
-    .feed {
-      display: flex;
-      flex-direction: column;
-
-      .tweet {
-        display: flex;
-        border: 1px solid;
-        padding: 2em;
       }
     }
   }

@@ -85,7 +85,7 @@ body #left-menu .item .caption {
   padding-left: 1em;
 }
 body #left-menu .tweet {
-  margin-left: 0.3em;
+  margin-left: 0.1em;
   width: 7em;
 }
 body .profile {
@@ -102,6 +102,31 @@ body .main .title {
   font-weight: bold;
   font-size: 2.2em;
   margin: 0.5em;
+}
+body .feed {
+  display: flex;
+  flex-direction: column;
+}
+body .feed .tweet {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  padding: 2em;
+}
+body .feed .tweet .tweet-body {
+  display: flex;
+}
+body .feed .tweet .interaction {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+  padding-left: 6em;
+  padding-right: 6em;
+}
+body .feed .tweet .interaction .icon {
+  width: 2em;
+  height: 2em;
+  margin-right: 1em;
 }
 body #home {
   display: flex;
@@ -127,15 +152,6 @@ body #home .status-container .interaction .icon {
 }
 body #home .status-container .interaction .tweet {
   margin-left: 9em;
-}
-body #home .feed {
-  display: flex;
-  flex-direction: column;
-}
-body #home .feed .tweet {
-  display: flex;
-  border: 1px solid;
-  padding: 2em;
 }
 body #profile {
   display: none;
@@ -209,15 +225,6 @@ body #profile .tabs .tab {
   float: right;
   font-weight: bold;
   vertical-align: middle;
-}
-body #profile .feed {
-  display: flex;
-  flex-direction: column;
-}
-body #profile .feed .tweet {
-  display: flex;
-  border: 1px solid;
-  padding: 2em;
 }
 body #right-menu {
   display: flex;

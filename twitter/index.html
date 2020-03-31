@@ -7,6 +7,7 @@
     <meta name="description" content="Twitter">
     <link rel="shortcut icon" type="image/x-icon" href="assets/twitter.ico">
     <link rel="stylesheet" href="stylesheet/style.css">
+    <script src="js/TweetAPI.js"></script>
     <script src="js/main.js"></script>
 </head>
 <body>
@@ -51,12 +52,39 @@
         </div>
     </div>
 
+    <template class="tweet-template">
+        <div class="tweet" data-id="0">
+            <div class="tweet-body">
+                <img class="profile" src="assets/profile.jpg">
+                <div class="body">
+                    <h3 class="author">Erez Bizo</h3>
+                    <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+                </div>
+            </div>
+            <div class="interaction">
+                <div class="comment-tweet-icon icon-wrapper">
+                    <img class="icon" src="assets/home/interactions/picture.svg">
+                </div>
+                <div class="share-tweet-icon icon-wrapper">
+                    <img class="icon" src="assets/home/interactions/gif.svg">
+                </div>
+                <div class="like-tweet-icon icon-wrapper">
+                    <img class="icon" src="assets/home/interactions/poll.svg">
+                </div>
+                <div class="send-tweet-icon icon-wrapper">
+                    <img class="icon" src="assets/home/interactions/emoji.svg">
+                </div>
+            </div>
+        </div>
+    </template>
+
+
     <div id="home" class="main">
         <h2 class="title">Home</h2>
         <div class="status-container">
             <div class="status">
                 <img class="profile" src="assets/profile.jpg">
-                <textarea rows="5" cols="50">What's happening?</textarea>
+                <textarea rows="5" cols="50" placeholder="What's happening?"></textarea>
             </div>
             <div class="interaction">
                 <div class="icon-wrapper">
@@ -71,40 +99,12 @@
                 <div class="icon-wrapper">
                     <img class="icon" src="assets/home/interactions/emoji.svg">
                 </div>
-                <div class="small-button tweet">
+                <div id="add-tweet" class="small-button tweet">
                     <span class="caption">Tweet</span>
                 </div>
             </div>
         </div>
         <div class="feed">
-            <div class="tweet">
-                <img class="profile" src="assets/profile.jpg">
-                <div class="body">
-                    <h3 class="author">Erez Bizo</h3>
-                    <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-                </div>
-            </div>
-            <div class="tweet">
-                <img class="profile" src="assets/profile.jpg">
-                <div class="body">
-                    <h3 class="author">Erez Bizo</h3>
-                    <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-                </div>
-            </div>
-            <div class="tweet">
-                <img class="profile" src="assets/profile.jpg">
-                <div class="body">
-                    <h3 class="author">Erez Bizo</h3>
-                    <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-                </div>
-            </div>
-            <div class="tweet">
-                <img class="profile" src="assets/profile.jpg">
-                <div class="body">
-                    <h3 class="author">Erez Bizo</h3>
-                    <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -157,15 +157,6 @@
             </div>
         </div>
         <div class="feed">
-            <template class="tweet-template">
-                <div class="tweet">
-                    <img class="profile" src="assets/profile.jpg">
-                    <div class="body">
-                        <h3 class="author">Erez Bizo</h3>
-                        <span class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-                    </div>
-                </div>
-            </template>
         </div>
     </div>
 
