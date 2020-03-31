@@ -122,10 +122,12 @@ const loadUserData = () => {
 };
 
 const loadTweets = (mainWindow) => {
-    let feed = document.querySelector("#" + mainWindow + " .feed");
+    let loading = document.getElementById("loading");
+    loading.style.display = "block";
 
     TweetAPI.getTweets()
         .then(tweets => {
+                let feed = document.querySelector("#" + mainWindow + " .feed");
                 feed.innerHTML = "";
 
                 tweets.forEach(tweet => {
@@ -151,6 +153,7 @@ const loadTweets = (mainWindow) => {
                             likeIcon.style.fill = "red";
                         }
 
+                        loading.style.display = "none";
                         feed.appendChild(clone)
                     }
                 )
