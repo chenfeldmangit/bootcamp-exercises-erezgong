@@ -183,7 +183,7 @@ const loadTweets = async (mainWindow, filter) => {
 
 const addTweet = async () => {
     let tweetTextArea = document.querySelector("#home .status .box");
-    let tweet = new tweet(
+    let tweet = new Tweet(
         undefined,
         "assets/profile.jpg",
         "Erez Bizo",
@@ -225,17 +225,17 @@ let initialUserData = {
 };
 
 let initialTweets = [
-    new tweet(0,
+    new Tweet(0,
         "assets/profile.jpg",
         "Erez Bizo",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         false),
-    new tweet(1,
+    new Tweet(1,
         "assets/profile.jpg",
         "Erez Bizo",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         false),
-    new tweet(2,
+    new Tweet(2,
         "assets/profile.jpg",
         "Erez Bizo",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",

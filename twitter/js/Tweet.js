@@ -1,4 +1,4 @@
-class tweet {
+class Tweet {
     constructor(id, profile, author, text, liked){
         this.id = id;
         this.profile = profile;
